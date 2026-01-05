@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="converter.MainController"
+            stylesheets="@style.css">
+
+    <!-- HEADER -->
+    <top>
+        <VBox styleClass="header">
+            <Label text="XML ↔ JSON Converter (API)" styleClass="title"/>
+        </VBox>
+    </top>
+
+    <!-- CENTER -->
+    <center>
+        <SplitPane dividerPositions="0.5">
+
+            <!-- INPUT PANEL (LEFT) -->
+            <VBox styleClass="panel">
+                <Label fx:id="inputLabel"
+                       text="XML"
+                       styleClass="panel-title"/>
+
+                <TextArea fx:id="inputArea"
+                          styleClass="editor"
+                          prefHeight="400"/>
+            </VBox>
+
+            <!-- OUTPUT PANEL (RIGHT) -->
+            <VBox styleClass="panel">
+                <Label fx:id="outputLabel"
+                       text="JSON"
+                       styleClass="panel-title"/>
+
+                <TextArea fx:id="outputArea"
+                          editable="false"
+                          styleClass="editor"
+                          prefHeight="400"/>
+            </VBox>
+
+        </SplitPane>
+    </center>
+
+    <!-- ACTION BAR -->
+    <bottom>
+        <HBox spacing="20"
+              alignment="CENTER"
+              styleClass="actions">
+
+            <Button text="Convert"
+                    onAction="#handleConvert"
+                    styleClass="primary"/>
+
+            <Button text="Inverse"
+                    onAction="#handleInverse"
+                    styleClass="secondary"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>
